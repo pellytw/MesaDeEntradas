@@ -1,0 +1,29 @@
+<h1>Listado de Oficinas</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Organismo</th>
+    <th>Localidad</th>
+    <th>Nombre</th>
+    <th>Descripci&oacute;n</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @oficinas.each do |oficina| %>
+  <tr>
+    <td><%= oficina.organismo %></td>
+    <td><%= oficina.localidad %></td>
+    <td><%= oficina.nombre %></td>
+    <td><%= oficina.descripcion %></td>
+    <td><%= link_to 'Ver', oficina %></td>
+    <td><%= link_to 'Editar', edit_oficina_path(oficina) %></td>
+    <td><%= link_to 'Eliminar', oficina, method: :delete, data: { confirm: '¿Está seguro que desea eliminar?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Oficina', new_oficina_path %>

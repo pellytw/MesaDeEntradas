@@ -1,0 +1,94 @@
+<%= nested_form_for(@documento)  do |f| %>
+  <% if @documento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@documento.errors.count, "error") %> prohibited this documento from being saved:</h2>
+
+      <ul>
+      <% @documento.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipo_de_documento_id %><br />
+    <%= collection_select(:documento, :tipo_de_documento_id, TipoDeDocumento.all, :id, :nombre) %>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.datepicker :fecha, :dateFormat => "dd-mm-yy", :dayNamesMin => ["Do", "Lu", "Ma", "Mie", "Jue", "Vie", "Sa"],
+        :monthNames 		=> ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+        :monthNamesShort	=> ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+        :navigationAsDateFormat => true, :nextText => "Sig", :prevText => "Ant", :showAnim => "explode" %>
+  </div>
+  <div class="field">
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :motivo_id %><br />
+    <%= collection_select(:documento, :motivo_id, Motivo.all, :id, :nombre) %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_de_oblea %><br />
+    <%= f.text_field :numero_de_oblea %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_de_entrada %><br />
+    <%= f.text_field :numero_de_entrada %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_de_salida %><br />
+    <%= f.text_field :numero_de_salida %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_de_vencimiento %><br />
+    <%= f.date_select :fecha_de_vencimiento %>
+  </div>
+  <div class="field">
+    <%= f.label :tramite_preferencial %>
+    <%= f.check_box :tramite_preferencial %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion, :rows => 3 %>
+  </div>
+  <div class="field">
+  	<input name="tipo" id="tipo" class="tipo" type="radio" value="oficina">oficina</input>
+  	<input name="tipo" id="tipo" class="tipo" type="radio" value="persona">persona</input>
+  </div>
+  <div class="field">
+  	<select name="oficina">
+  		<% Oficina.all.each do |oficina| %>
+  			<option value="<%= oficina.id %>"><%= oficina.nombre %></option>
+  		<% end %>  		
+  	</select>
+  </div>
+  <div class="field">
+  	<select name="persona">
+  		<% Persona.all.each do |persona| %>
+  			<option value="<%= persona.id %>"><%= persona.to_s %></option>
+  		<% end %>  		
+  	</select>
+  </div>
+  
+  <div class="field">
+  	<label>Nuevo Lugar</label><br />
+  	<%= f.fields_for :lugar do |l|%>
+  
+
+  	<%= l.text_field(:documento_id)%> &nbsp;-&nbsp; <%= l.link_to_remove "eliminar", :class => "btn btn-danger btn-mini" %>
+  	<% end %>
+    <p><%= f.link_to_add "agregar lugar", :lugar, :class => "btn btn-success" %></p>
+  </div>
+  
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

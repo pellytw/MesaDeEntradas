@@ -1,0 +1,18 @@
+
+<p>
+  <b>Nombre:</b>
+  <%= @localidad.nombre %>
+</p>
+
+<p>
+  <b>Codigo postal:</b>
+  <%= @localidad.codigo_postal %>
+</p>
+
+<p>
+  <b>Region:</b>
+  <%= @localidad.region %>
+</p>
+
+<%= link_to 'Editar', edit_localidad_path(@localidad) %> |
+<%= link_to 'Volver', localidads_path %>

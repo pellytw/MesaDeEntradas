@@ -1,0 +1,2 @@
+module TipoDeDocumentoAgentesHelper
+end

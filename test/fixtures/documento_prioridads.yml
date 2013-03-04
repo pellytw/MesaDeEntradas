@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  documento_id: 1
+  prioridad_id: 1
+  fecha: 2012-12-05 11:09:20
+
+two:
+  documento_id: 1
+  prioridad_id: 1
+  fecha: 2012-12-05 11:09:20

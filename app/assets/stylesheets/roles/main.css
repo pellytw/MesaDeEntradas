@@ -1,0 +1,25 @@
+/* 
+    Document   : main.css
+    Created on : Feb 27, 2012, 12:29:02 PM
+    Author     : lynchcs
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+.listNoDecorate {
+  list-style-type: none;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.roleDescription {
+  display:inline-block;
+}
+
+.roleCommands {
+  display:inline-block;
+  width: 30em;
+  min-width: 10em;
+  font-size: .75em;
+}

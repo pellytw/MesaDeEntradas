@@ -1,0 +1,37 @@
+<h1>Listado de Lugares</h1>
+
+<table class="table table-striped" >
+  <tr>
+    <th>Documento</th>
+    <th>Fecha desde</th>
+    <th>Fecha hasta</th>
+   
+    <th>Persona</th>
+    <th>Oficina</th>
+    <th>Usuario</th>
+    <th>Efectivo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lugars.each do |lugar| %>
+  <tr>
+    <td><%= lugar.documento_id %></td>
+    <td><%= lugar.fecha_desde %></td>
+    <td><%= lugar.fecha_hasta %></td>
+  
+    <td><%= lugar.persona %></td>
+    <td><%= lugar.oficina %></td>
+    <td><%= lugar.user %></td>
+    <td><%= lugar.efectivo %></td>
+    <td><%= link_to 'Ver', lugar %></td>
+    <td><%= link_to 'Editar', edit_lugar_path(lugar) %></td>
+    <td><%= link_to 'Eliminar', lugar, method: :delete, data: { confirm: '¿Está seguro que desea eliminar?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Lugar', new_lugar_path %>

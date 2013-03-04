@@ -1,0 +1,23 @@
+<h1>Listado de Organismos</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @organismos.each do |organismo| %>
+  <tr>
+    <td><%= organismo.nombre %></td>
+    <td><%= link_to 'Ver', organismo %></td>
+    <td><%= link_to 'Editar', edit_organismo_path(organismo) %></td>
+    <td><%= link_to 'Eliminar', organismo, method: :delete, data: { confirm: '¿Está seguro que desea eliminar?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Organismo', new_organismo_path %>

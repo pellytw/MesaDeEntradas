@@ -1,0 +1,46 @@
+<%= form_for(@lugar) do |f| %>
+  <% if @lugar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lugar.errors.count, "error") %> prohibited this lugar from being saved:</h2>
+
+      <ul>
+      <% @lugar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :documento_id %><br />
+    <%= f.number_field :documento_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_desde %><br />
+    <%= f.datetime_select :fecha_desde %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_hasta %><br />
+    <%= f.datetime_select :fecha_hasta %>
+  </div>
+
+  <div class="field">
+    <%= f.label :persona_id %><br />
+    <%= f.number_field :persona_id %>
+  </div>
+  <div class="field">
+    <%= f.label :oficina_id %><br />
+    <%= f.number_field :oficina_id %>
+  </div>
+  <div class="field">
+    <!-- <%= f.label :user_id %><br /> -->
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="field">
+    <%= f.label :efectivo %><br />
+    <%= f.check_box :efectivo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

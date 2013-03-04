@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fecha: 2012-12-05 11:22:58
+  user_id: 1
+  recibido: false
+
+two:
+  fecha: 2012-12-05 11:22:58
+  user_id: 1
+  recibido: false

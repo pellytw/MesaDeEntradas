@@ -1,0 +1,24 @@
+
+<p>
+  <b>Organismo:</b>
+  <%= @oficina.organismo_id %>
+</p>
+
+<p>
+  <b>Localidad:</b>
+  <%= @oficina.localidad_id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @oficina.nombre %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @oficina.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_oficina_path(@oficina) %> |
+<%= link_to 'Volver', oficinas_path %>

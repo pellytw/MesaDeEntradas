@@ -1,0 +1,13 @@
+<p>
+  <b>Nombre:</b>
+  <%= @prioridad.nombre %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @prioridad.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_prioridad_path(@prioridad) %> |
+<%= link_to 'Volver', prioridads_path %>

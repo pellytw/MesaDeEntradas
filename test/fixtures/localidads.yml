@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  region_id: 1
+  codigo_postal: MyString
+  nombre: MyString
+
+two:
+  region_id: 1
+  codigo_postal: MyString
+  nombre: MyString

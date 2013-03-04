@@ -1,0 +1,31 @@
+<script>
+
+  $(".deleteLink").click(function(event){
+    event.preventDefault();
+    $.post(event.target, 
+    "_method=DELETE",
+    function(data) {
+      writePermission(data);
+    },
+    'html');
+  });
+
+
+  $('.ajaxLink').click(function(event){
+    event.preventDefault(); // Prevent link from following its href
+    fillPermission(event.target);
+    return false;
+  });
+
+  $('.standardSubmit').click(function(event){
+    event.preventDefault(); // Prevent link from following its href
+    submitFormPost(event.target.form,
+      function(data) {
+        writePermission(data);
+      }
+    );
+  });
+
+
+
+</script>

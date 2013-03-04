@@ -1,0 +1,18 @@
+<p>
+  <b>Fecha:</b>
+  <%= @pase.fecha %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @pase.user_id %>
+</p>
+
+<p>
+  <b>Recibido:</b>
+  <%= @pase.recibido %>
+</p>
+
+
+<%= link_to 'Editar', edit_pase_path(@pase) %> |
+<%= link_to 'Volver', pases_path %>

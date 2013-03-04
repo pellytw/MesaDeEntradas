@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proyecto</title>
+  <%= stylesheet_link_tag    'application' %>
+  <%= stylesheet_link_tag    params[:controller] %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag params[:controller] %>
+  <%= csrf_meta_tags %>
+
+  <link href= "app/assets/stylesheets/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <%= javascript_include_tag "jquery.min.js"%>
+  <%= javascript_include_tag "jquery-ui.min.js"%>
+  <%= javascript_include_tag :defaults, "nested_form" %>
+
+
+
+</head>
+<body>
+	
+	<div class="container">
+	<div id="navbar-example" class="navbar navbar-inverse ">
+    <div class="navbar-inner">
+    <div class="container" style="width: auto;">
+    	 <% if user_signed_in? %>
+          	<%if current_user.oficina then%>
+          	  <a class="brand" href="#"><%= current_user.oficina %></a>	          
+	        <% end %>
+		<% else %>
+		  	<a class="brand" href="#">Mesa de Entradas</a>	 
+      	<% end %>
+      
+      <ul class="nav" role="navigation">
+       
+       
+      
+	<% if user_signed_in? then %>
+ 	   
+        <!-- ACCESO JEFA MESA DE ENTRADAS-->
+        <li class="dropdown">
+          <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Tareas <b class="caret"></b></a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+            <li><%=link_to "Entrada de Documento",  new_documento_path, :tabindex => "-1"%></li>
+            <li><%=link_to "Listado de Documentos", documentos_path, :tabindex => "-1"%></li>
+            <li><%=link_to "Prueba", :tabindex => "-1"%></li>
+            <li><%=link_to "",  :tabindex => "-1"%></li>
+          </ul>
+        </li>
+        
+        <!-- ACCESO ADMINISTRADOR-->
+        	<% if current_user.role? :admin then %>
+	        <li class="dropdown">
+	          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Configuraci&oacute;n <b class="caret"></b></a>
+	          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+	          	<li><%=link_to "Estados", estados_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Localidades", localidads_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Lugares", lugars_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Motivos", motivos_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Oficinas", oficinas_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Organismos", organismos_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Pases", pases_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Personas", personas_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Prioridades", prioridads_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Regiones", regions_path,  :tabindex => "-1"%></li>
+	          	<li><%=link_to "Tipos de Documento Agentes", tipo_de_documento_agentes_path, :tabindex => "-1"%></li>
+	          	<li><%=link_to "Tipos de Documento", tipo_de_documentos_path,  :tabindex => "-1"%></li>
+	         </ul>
+	        </li>
+	      </ul>
+	      <% end %>
+	 <% end %>
+     
+     </ul>
+	
+	
+	<!-- INFORMACION DE LOGGING -->
+      <ul class="nav pull-right">
+        <li id="fat-menu" class="dropdown">
+          <% if user_signed_in? %>
+	          <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Bienvenido: <%= current_user.email %> <b class="caret"></b></a>
+	          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+	          	<li><%=link_to "Mi cuenta", edit_user_registration_path, :tabindex => "-1"%></li>
+	            <li class="divider"></li>
+	            <li><%= link_to 'Salir', destroy_user_session_path, :method => :delete, :tabindex => "-1" %></li>            
+	          </ul>
+	      <% else %>
+	          <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">No ha iniciado sesion<b class="caret"></b></a>
+	          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+	          	<li><%= link_to "Iniciar Sesion", new_user_session_path , :tabindex => "-1" %></li> 
+	          	<li class="divider"></li>
+	            <li><%= link_to "Registrar", new_user_registration_path, :tabindex => "-1"%></li>           
+	          </ul>
+		  <% end %>
+        </li>
+      </ul>
+	  <ul class="nav pull-right">
+        <li id="fat-menu">
+         
+        </li>
+      </ul>      
+	
+	 </div>
+  </div>
+</div> 		      
+      
+		<div class="row"> 
+
+	<div class="span12">
+		<div class="container">
+		   <% if flash[:error] then %>
+		   	<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<h4>Error!</h4>
+				<%= flash[:error]%>
+    		</div>
+		   <% end %>
+		   <% if alert then %>
+       		<div class="alert alert-block">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<h4>Advertencia!</h4>
+				<%= alert %>
+			</div>	       		
+		   <% end %>
+		   <% if notice then%>   
+		       <div class="alert alert-info">
+    				<%= notice%>
+    		   </div>
+    	   <% end %>
+		   <%= yield %>
+		</div>
+	</div>
+</div>
+</div>
+
+
+</body>
+</html>

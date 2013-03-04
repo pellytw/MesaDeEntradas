@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tipo_de_documento_agente_id: 1
+  documento: 1
+  apellidos: MyString
+  nombres: MyString
+  localidad_id: 1
+
+two:
+  tipo_de_documento_agente_id: 1
+  documento: 1
+  apellidos: MyString
+  nombres: MyString
+  localidad_id: 1

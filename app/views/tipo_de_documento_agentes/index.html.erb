@@ -1,0 +1,23 @@
+<h1>Listing tipo_de_documento_agentes</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tipo_de_documento_agentes.each do |tipo_de_documento_agente| %>
+  <tr>
+    <td><%= tipo_de_documento_agente.nombre %></td>
+    <td><%= link_to 'Show', tipo_de_documento_agente %></td>
+    <td><%= link_to 'Edit', edit_tipo_de_documento_agente_path(tipo_de_documento_agente) %></td>
+    <td><%= link_to 'Destroy', tipo_de_documento_agente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tipo de documento agente', new_tipo_de_documento_agente_path %>

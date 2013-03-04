@@ -1,0 +1,27 @@
+<h1>Listado de Pases</h1>
+
+<table>
+  <tr>
+    <th>Fecha</th>
+    
+    <th>Recibido</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @pases.each do |pase| %>
+  <tr>
+    <td><%= pase.fecha %></td>
+    
+    <td><%= pase.recibido %></td>
+    <td><%= link_to 'Ver', pase %></td>
+    <td><%= link_to 'Editar', edit_pase_path(pase) %></td>
+    <td><%= link_to 'Eliminar', pase, method: :delete, data: { confirm: '¿Está seguro que desea eliminar?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Pase', new_pase_path %>

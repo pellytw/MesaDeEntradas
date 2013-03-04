@@ -1,0 +1,68 @@
+<h1>Listado de Documentos</h1>
+
+
+<form class="form-search" action="../../documentos">
+  <div class="input-prepend">
+    <button type="submit" class="btn" >Buscar</button>
+    <input type="text" class="span2 search-query" name="busqueda" placeholder="documentos">
+  </div>
+</form>
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Tipo de documento</th>
+    <th>Fecha</th>
+    <th>N&uacute;mero</th>
+    <th>Nombre</th>
+    <th>Motivo</th>
+    <th>N&uacute;mero de oblea</th>
+    <th>N&uacute;mero de entrada</th>
+    <th>N&uacute;mero de salida</th>
+    <th>Fecha de vencimiento</th>
+    <th>Tr&aacute;mite preferencial</th>
+    <th>Descripci&oacute;n</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @documentos.each do |documento| %>
+  <tr>
+    <td><%= documento.tipo_de_documento %></td>
+    <td><% if documento.fecha then %> <%= documento.fecha.day %>/<%= documento.fecha.month %>/<%= documento.fecha.year %><% end %></td>
+    <td><%= documento.numero %></td>
+    <td><%= documento.nombre %></td>
+    <td><%= documento.motivo %></td>
+    <td><%= documento.numero_de_oblea %></td>
+    <td><%= documento.numero_de_entrada %></td>
+    <td><%= documento.numero_de_salida %></td>
+    <td><% if documento.fecha_de_vencimiento then %> <%= documento.fecha_de_vencimiento.day %>/<%= documento.fecha_de_vencimiento.month %>/<%= documento.fecha_de_vencimiento.year %><% end %></td>
+    <td><% if (documento.tramite_preferencial==true) then %> <%= "Si" %> <% else %>  <%= "No" %>  <% end %></td>
+    <td><%= documento.descripcion %></td>
+    <td><%= link_to 'Ver', documento, :class => "btn" %></td>
+    <td><%= link_to 'Editar', edit_documento_path(documento), :class => "btn" %></td>
+    <td><%= link_to 'Eliminar', documento, method: :delete, :class => "btn",data: { confirm: '¿Está seguro que desea eliminar?' } %></td>
+    <td><%= link_to 'Agregar Pase', url_for(:controller => "pases", :action => "agregar", :idDocumento => documento.id),  :class => "btn btn-danger btn-mini" %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Entrada', new_documento_path, :class => "btn btn-success" %>
+
+<!-- session["pase"] = nil -->
+<% if (session["pase"]) then %>
+<% @pase = session["pase"] %>
+<div>
+	<ul>
+	<%@pase.pase_documentos.each do |pd|%>
+		<li><%= pd.documento %> - <%= link_to 'Eliminar', url_for(:controller => "pases", :action => "quitar", :idDocumento => pd.documento.id) %> </li>
+	<% end %>
+	</ul>	
+</div>
+<% end %>	
+
+

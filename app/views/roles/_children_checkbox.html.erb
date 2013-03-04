@@ -1,0 +1,6 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<li><%= check_box_tag "role[child_ids][]", current_role.id, @role.children.include?(current_role), :disabled => current_role.eql?(@role) %><%= current_role.description %></li><%= the_children %>

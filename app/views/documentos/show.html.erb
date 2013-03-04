@@ -1,0 +1,59 @@
+
+<p>
+  <b>Tipo de documento:</b>
+  <%= @documento.tipo_de_documento %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <% if @documento.fecha then %> <%= @documento.fecha.day %>/<%= @documento.fecha.month %>/<%= @documento.fecha.year %><% end %>
+</p>
+
+<p>
+  <b>N&uacute;mero:</b>
+  <%= @documento.numero %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @documento.nombre %>
+</p>
+
+<p>
+  <b>Motivo:</b>
+  <%= @documento.motivo %>
+</p>
+
+<p>
+  <b>N&uacute;mero de oblea:</b>
+  <%= @documento.numero_de_oblea %>
+</p>
+
+<p>
+  <b>N&uacute;mero de entrada:</b>
+  <%= @documento.numero_de_entrada %>
+</p>
+
+<p>
+  <b>N&uacute;mero de salida:</b>
+  <%= @documento.numero_de_salida %>
+</p>
+
+<p>
+  <b>Fecha de vencimiento:</b>
+  <% if @documento.fecha_de_vencimiento then %> <%= @documento.fecha_de_vencimiento.day %>/<%= @documento.fecha_de_vencimiento.month %>/<%= @documento.fecha_de_vencimiento.year %><% end %>
+</p>
+
+<p>
+  <b>Tr&aacute;mite preferencial:</b>
+  <%= @documento.tramite_preferencial %>
+</p>
+
+<p>
+  <b>Descripci&oacute;n:</b>
+  <%= @documento.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_documento_path(@documento) %> |
+<%= link_to 'Volver', documentos_path %>

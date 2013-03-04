@@ -1,0 +1,41 @@
+
+<p>
+  <b>Documento:</b>
+  <%= @lugar.documento_id %>
+</p>
+
+<p>
+  <b>Fecha desde:</b>
+  <%= @lugar.fecha_desde %>
+</p>
+
+<p>
+  <b>Fecha hasta:</b>
+  <%= @lugar.fecha_hasta %>
+</p>
+
+
+
+<p>
+  <b>Persona:</b>
+  <%= @lugar.persona_id %>
+</p>
+
+<p>
+  <b>Oficina:</b>
+  <%= @lugar.oficina_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @lugar.user_id %>
+</p>
+
+<p>
+  <b>Efectivo:</b>
+  <%= @lugar.efectivo %>
+</p>
+
+
+<%= link_to 'Edit', edit_lugar_path(@lugar) %> |
+<%= link_to 'Back', lugars_path %>

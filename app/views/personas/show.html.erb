@@ -1,0 +1,28 @@
+<p>
+  <b>Tipo de documento agente:</b>
+  <%= @persona.tipo_de_documento_agente_id %>
+</p>
+
+<p>
+  <b>Documento:</b>
+  <%= @persona.documento %>
+</p>
+
+<p>
+  <b>Apellidos:</b>
+  <%= @persona.apellidos %>
+</p>
+
+<p>
+  <b>Nombres:</b>
+  <%= @persona.nombres %>
+</p>
+
+<p>
+  <b>Localidad:</b>
+  <%= @persona.localidad_id %>
+</p>
+
+
+<%= link_to 'Editar', edit_persona_path(@persona) %> |
+<%= link_to 'Volver', personas_path %>

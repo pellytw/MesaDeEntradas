@@ -1,0 +1,13 @@
+<div><%= f.label :email %><br />
+<%= f.email_field :email %></div>
+
+<div><%= f.label :password %><br />
+<%= f.password_field :password %></div>
+
+<div><%= f.label :password_confirmation %><br />
+<%= f.password_field :password_confirmation %></div>
+
+<% if current_user.role? :admin then %>
+<div ><label>Oficina</label></div><br />
+<%= collection_select(:user, :oficina_id, Oficina.all, :id, :nombre, :prompt => true)%>
+<% end %>
